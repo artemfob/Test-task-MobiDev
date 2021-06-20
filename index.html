@@ -8,14 +8,28 @@
 </head>
 <body>
     <canvas id="canvas">Your browser is not supported. Use Chrome;-)</canvas>
-    <div class="options-btns">
-        <p>Please, write line width</p>
-        <input id='line-width' type="number" onchange="changeWidth()" placeholder="width in pixels">
-        <p>Choose color <br>(HEX or just 'red, green, blue, black etc')</p>
-        <input id="line-color" onchange="changeColor()"  type="text" placeholder="use ColorMania (u like it =))">
-        <button onclick="canvasClear()">Clear</button>
-        <button onclick="horizontalFlip()">Flip 1</button>
-        <button onclick="undo()">Undo</button>
+    <div class="options">
+        <p class="options_width">Please, write line width:
+        <input 
+                id='line-width' 
+                type="number" 
+                onchange="changeWidth()" 
+                value="1">px</p>
+        <div class="options_color">
+            <p>Choose color:
+                    <input id="line-color" 
+                       onchange="changeColor()"  
+                       type="text" 
+                       value="black"><br>
+                (HEX or just 'red, green, blue, black etc')
+            </p>
+        </div>
+                <div class="btns">
+                    <button class='btns_undo' onclick="undo()">Undo</button>
+                    <button class='btns_vertical-flip' onclick="verticalFlip()">Vertical duplicate</button>
+                    <button class='btns_horizontal-flip' onclick="horizontalFlip()">Horizontal duplicate</button>
+                    <button class='btns_clear' onclick="canvasClear()">Clear</button>
+                </div>
     </div>
 </body>
 <script src="index.js"></script>

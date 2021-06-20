@@ -5,8 +5,10 @@ canvas.height = 600
 canvas.width = 600
 let coords = []
 
+
     const userLineWidth = document.getElementById('line-width')
     const userLineColor = document.getElementById('line-color')
+
 
 
     changeWidth = ()=>{
@@ -27,18 +29,25 @@ let coords = []
     changeColor = ()=>{
         userLineColor.value === ""? context.strokeStyle = 'black' : context.strokeStyle = userLineColor.value 
         userLineColor.value === ""? context.fillStyle = 'black' :context.fillStyle   = userLineColor.value 
+        userLineColor.style.color = userLineColor.value
     }
     canvasClear = ()=>{
         context.beginPath()
         context.clearRect(0,0, canvas.width, canvas.height )
 
     }
-    horizontalFlip = ()=>{ 
+    verticalFlip = ()=>{ 
         context.save()
-        context.setTransform(1,0,0,-1,0,canvas.height);
-        context.drawImage(canvas,0,0 )
+        context.setTransform(1,0,0,-1,0,canvas.width);
+        context.drawImage(canvas,0,0)
         context.restore()
 
+    }
+    horizontalFlip = ()=>{
+        context.save()
+        context.setTransform(-1,0,0,1,canvas.width,0);
+        context.drawImage(canvas,0,0)
+        context.restore()
     }
     saveF=()=>{
         localStorage.setItem('coords', JSON.stringify(coords))
@@ -51,18 +60,26 @@ let coords = []
                 context.beginPath()
                 return
             }
-            let crd = coords.shift(),
+            let crd = coords.pop(),
         e = {
             clientX: crd['0'],
-            clientY: crd['1']
+            clientY: crd['1'],
+            color: crd['2'],
+            width: crd['3']
         }
+
         context.lineTo(e.clientX, e.clientY)
+        context.strokeStyle = e.color
+        context.lineWidth = e.width
         context.stroke()
         context.beginPath()
-        context.arc(e.clientX, e.clientY, userLineWidth.value / 2 ,0 , Math.PI*2)
+        context.arc(e.clientX, e.clientY, e.width / 2 ,0 , Math.PI*2)
+        context.fillStyle = e.color
         context.fill()
         context.beginPath()
         context.moveTo(e.clientX, e.clientY)
+        context.strokeStyle = userLineColor.value
+        context.fillStyle = userLineColor.value
         }, 1)
         
     }
@@ -72,7 +89,7 @@ let coords = []
         
     }
 whenMouseMove =(e)=>{
-    coords.push([e.clientX, e.clientY])
+    coords.push([e.clientX, e.clientY, userLineColor.value, userLineWidth.value])
     context.lineTo(e.clientX, e.clientY)
     context.stroke()
     context.beginPath()

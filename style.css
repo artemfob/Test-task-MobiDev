@@ -1,12 +1,97 @@
-body{
+body {
     display: flex;
-    margin: 0;    
+    margin: 0;
+    font-family: 'Times New Roman', Times, serif;
 }
-#canvas{
+
+#canvas {
     display: block;
     border: 1px solid gray;
 }
-.options-btns{
+
+.options {
+    margin-left: 1%;
+}
+
+#line-width {
+    width: 50px;
+    border: none;
+    outline: grey;
+    text-align: center;
+    font-size: 20px;
+    color: red;
+}
+
+.btns {
     display: flex;
+    height: 250px;
     flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.btns_undo {
+    background-color: white;
+    border: 1px solid red;
+    border-radius: 7px;
+    padding: 10px 20px 10px 20px;
+    font-size: 18px;
+    color: black;
+}
+
+.btns_undo:hover {
+    color: #FB1F0F;
+    border: 2px solid red;
+}
+
+.btns_horizontal-flip {
+    background-color: white;
+    border: 1px solid #00FF55;
+    border-radius: 7px;
+    padding: 10px 20px 10px 20px;
+    font-size: 18px;
+    color: #00FF55;
+}
+
+.btns_vertical-flip {
+    background-color: white;
+    border: 1px solid #4F3CFF;
+    border-radius: 7px;
+    padding: 10px 20px 10px 20px;
+    font-size: 18px;
+    color: #4F3CFF;
+    text-transform: uppercase;
+}
+
+.btns_clear {
+    background-color: white;
+    border: 1px solid red;
+    border-radius: 7px;
+    padding: 10px 20px 10px 20px;
+    font-size: 18px;
+    color: red;
+}
+
+.btns_clear:hover {
+    text-transform: uppercase;
+    color: white;
+    background-color: red;
+}
+
+.options_width {
+    border-bottom: 1px solid black;
+}
+
+#line-color {
+    border: none;
+    border-bottom: 1px solid #000;
+    outline: none;
+    text-transform: uppercase;
+    font-weight: 800;
+    text-align: center;
+    font-size: 20px;
+}
+
+.options_color {
+    text-align: center;
 }
