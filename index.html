@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Test task</title>
+</head>
+<body>
+    <canvas id="canvas">Your browser is not supported. Use Chrome;-)</canvas>
+    <div class="options-btns">
+        <p>Please, write line width</p>
+        <input id='line-width' type="number" onchange="changeWidth()" placeholder="width in pixels">
+        <p>Choose color <br>(HEX or just 'red, green, blue, black etc')</p>
+        <input id="line-color" onchange="changeColor()"  type="text" placeholder="use ColorMania (u like it =))">
+        <button onclick="canvasClear()">Clear</button>
+        <button onclick="horizontalFlip()">Flip 1</button>
+        <button onclick="undo()">Undo</button>
+    </div>
+</body>
+<script src="index.js"></script>
+</html>

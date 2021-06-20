@@ -1,0 +1,12 @@
+body{
+    display: flex;
+    margin: 0;    
+}
+#canvas{
+    display: block;
+    border: 1px solid gray;
+}
+.options-btns{
+    display: flex;
+    flex-direction: column;
+}
