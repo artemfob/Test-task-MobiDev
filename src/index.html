@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Test task</title>
+</head>
+<body>
+    <canvas id="canvas">Your browser is not supported. Use Chrome;-)</canvas>
+    <div class="options">
+        <p class="options_width">Please, write line width:
+        <input 
+                id='line-width' 
+                type="number" 
+                onchange="changeWidth()" 
+                value="1">px</p>
+        <div class="options_color">
+            <p>Choose color:
+                    <input id="line-color" 
+                       onchange="changeColor()"  
+                       type="text" 
+                       value="black"><br>
+                (HEX or just 'red, green, blue, black etc')
+            </p>
+        </div>
+                <div class="btns">
+                    <button class='btns_undo' onclick="undo()">Undo</button>
+                    <button class='btns_vertical-flip' onclick="verticalFlip()">Vertical duplicate</button>
+                    <button class='btns_horizontal-flip' onclick="horizontalFlip()">Horizontal duplicate</button>
+                    <button class='btns_clear' onclick="canvasClear()">Clear</button>
+                </div>
+    </div>
+</body>
+<script src="index.js"></script>
+</html>
